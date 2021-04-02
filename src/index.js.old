@@ -1,0 +1,18 @@
+let inputValue;
+const input = document.querySelector('input');
+
+
+if (history.state) {
+    let historystate = history.state.input;
+    input.value = historystate;
+}
+setInterval(() => {
+
+    const value = input.value;
+    if (value !== inputValue) {
+        inputValue = value;
+        history.pushState({ input: value }, "");
+        // console.log(history);
+
+    }
+}, 3000);
